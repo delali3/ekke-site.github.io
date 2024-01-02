@@ -1,0 +1,507 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.top-nav {
+    background-color: #333;
+    /* Dark background */
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    /* Thin border at the bottom */
+}
+
+
+.logo img {
+    height: 60px;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li {
+    margin: 0 15px;
+}
+
+.main-nav ul li a {
+    color: #666;
+    /* Dark text color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #333;
+}
+
+.contact-btn {
+    border: 1px solid #cc0000;
+    padding:10px 15px;
+    text-decoration: none;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    border-color: #333;
+    color: #333;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-icon,
+.language-picker {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.top-nav i,
+.search-icon i {
+    margin-left: 5px;
+}
+
+/* Adjust the size and color of the icons as needed */
+.top-nav i {
+    font-size: 16px;
+    color: white;
+}
+
+
+@media screen and (max-width: 800px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav,
+    .header-right {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav ul li {
+        margin: 5px 0;
+    }
+}
+
+.full-height-section {
+    display: flex;
+    height: 90vh;
+    background-color: #f8f8f8;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    padding: 0 30px;
+}
+
+.text-section {
+    font-size: 4em;
+    color: black;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.dynamic-text {
+    overflow: hidden;
+    /* Hide the part of text that is outside its box */
+    color: #cc0000;
+}
+
+.dynamic-text b {
+    display: block;
+    /* Make each text appear on a new line */
+    opacity: 0;
+    /* Start with hidden text */
+    animation: slide-down 1s ease forwards;
+    transform: translateY(-100%);
+    /* Start from above */
+}
+
+.dynamic-text .is-visible {
+    opacity: 1;
+    /* Make the current text visible */
+    transform: translateY(0%);
+    /* Slide down into natural position */
+}
+
+@keyframes slide-down {
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+
+.circle-button-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 220px;
+    right: 15%;
+}
+
+.circle-button {
+    background-color: #cc0000;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    text-decoration: none;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensures the button is above the ripple effect */
+}
+
+
+.ripple-effect,
+.ripple-effect-2,
+.ripple-effect-3 {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: ripple 4s infinite ease-out;
+    bottom: -50%;
+    left: -50%;
+    transform: scale(0);
+    z-index: 1;
+}
+
+.ripple-effect-2 {
+    animation-delay: 2s;
+    /* Starts the second ripple 1 second later */
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.ripple-effect-3 {
+    animation-delay: 1s;
+    /* Starts the second ripple 1 second later */
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .full-height-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .circle-button-wrapper {
+        margin-top: 20px;
+    }
+}
+
+.sponsors-section {
+    padding: 20px;
+    background-color: #282c34; /* Updated to a deeper, more elegant dark shade */
+    color: white; /* Ensuring all text in this section is white */
+    overflow: hidden; /* Hide the overflow */
+    white-space: nowrap; /* Ensures inline layout of images */
+}
+
+.sponsors-title {
+    color: white; /* Explicitly setting the title color to white */
+    font-size: 1.5rem; /* Increasing the font size for better visibility */
+    margin-bottom: 30px; /* Adding more space between title and logos */
+    margin-top: 10px;
+}
+
+.sponsor {
+    height: 100px; /* Uniform height for all logos */
+    margin: 10px 15px; /* Adjust spacing between logos */
+    vertical-align: middle; /* Align images vertically */
+    opacity: 0.8; /* Slightly toned down opacity for a sleek look */
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.sponsor:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.sponsors-container {
+    display: flex; /* Use flexbox for layout */
+    animation: scroll 30s linear infinite; /* Adjust time as needed */
+}
+
+/* Services Section Styling */
+.services-section {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #fff;
+    padding: 40px;
+    display: flex;
+}
+
+.services-container {
+    display: flex;
+    width: 100%;
+}
+
+.tabs-container {
+    position: relative;
+    height: fit-content;
+}
+
+.services-tabs {
+    position: relative;
+    z-index: 2; /* Ensures the tab text appears above the vertical line */
+}
+
+.vertical-line {
+    position: absolute;
+    left: 1px; /* Align with the padding of the tabs */
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #ccc; /* Thin gray vertical line */
+    z-index: 1;
+}
+
+.tab {
+    cursor: pointer;
+    font-size: 20px;
+    padding-left: 20px;
+    position: relative; /* Needed to raise the tab above the pseudo-element */
+    z-index: 2; /* Ensures the tab text appears above the vertical line */
+}
+.mb-10{
+    margin-bottom: 10px;
+
+}
+
+.tab.active {
+    color: #c1272d; /* A red-like color for active tab */
+    border-left: 4px solid #c1272d; /* A red-like border for active tab */
+    z-index: 3; /* Ensures the active tab border appears above the vertical line */
+}
+
+.service-content {
+    flex-basis: 75%;
+    padding-left: 100px;
+}
+
+.service-detail {
+    display: none;
+}
+
+.service-detail.show {
+    display: block;
+}
+
+.service-title {
+    font-size: 28px;
+    color: #cc0000; /* A red-like color for the main title */
+    margin-bottom: 100px;
+}
+
+.service-description {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* This adds space between the columns */
+    margin-bottom: -20px; /* Negate the bottom margin of the last row */
+}
+
+.service-column {
+    flex: 1 1 calc(50% - 20px); /* Sets a basis of 50%, accounting for the gap */
+    padding-bottom: 20px; /* Space at the bottom inside the column */
+    margin-bottom: 20px; /* Space at the bottom outside the column */
+    border-bottom: 1px solid #ccc; /* Thin gray border */
+    padding-inline: 20px 60px;
+}
+
+/* Ensure the last service-column in any row doesn't have a right margin */
+.service-description .service-column:nth-child(odd) {
+    margin-right: 20px;
+}
+
+/* Adjustments for responsive behavior */
+@media screen and (max-width: 768px) {
+    .service-column {
+        flex-basis: 100%; /* Full width on smaller screens */
+        margin-right: 0; /* Remove right margin on smaller screens */
+    }
+}
+
+
+.service-column h3 {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.service-column p {
+    color: #666; /* A gray-like color for text */
+    line-height: 1.6;
+}
+
+/* Add responsiveness if necessary */
+@media screen and (max-width: 768px) {
+    .service-description {
+        flex-direction: column;
+    }
+
+    .service-column {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+    .service-description .service-column:nth-child(even) {
+        border-bottom: none;
+    }
+}
+/* Technology Section Styling */
+.technology-section {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 40px;
+}
+
+.technology-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.technology-content {
+    display: flex;
+}
+
+.content-switcher {
+    flex-basis: 30%;
+}
+
+.switcher-item {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.switcher-item.active {
+    background-color: #c1272d;
+    color: #fff;
+    border-color: #c1272d;
+}
+
+.item-details {
+    flex-basis: 70%;
+    padding-left: 20px;
+}
+
+.item-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.item-content {
+    display: flex;
+}
+
+.icon-column {
+    flex-basis: 20%;
+}
+
+.item-icon {
+    /* Styles for SVG icon */
+    width: 40px;
+    height: 40px;
+    fill: #c1272d; /* Example fill color for icon */
+}
+
+.text-column {
+    flex-basis: 80%;
+    padding-left: 20px;
+}
+
+.item-text {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.item-button {
+    padding: 10px 20px;
+    background-color: #c1272d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Responsive adjustments if necessary */
+@media screen and (max-width: 768px) {
+    .technology-content {
+        flex-direction: column;
+    }
+
+    .content-switcher,
+    .item-details {
+        flex-basis: 100%;
+    }
+}

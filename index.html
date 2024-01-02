@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Top Navigation Bar -->
+    <div class="top-nav">
+        <p>Meet us at IT-Tage, December 11-14 <i class="fas fa-arrow-right"></i></p>
+    </div>
+
+    <!-- Main Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Company Logo">
+            </div>
+            <nav class="main-nav">
+                <ul id="nav-menu">
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#industries">Industries</a></li>
+                    <li><a href="#studies">Case Studies</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="#contact" class="contact-btn">Contact Us</a>
+                <div class="search-icon"><i class="fas fa-search"></i></div>
+                <div class="language-picker">EN</div>
+            </div>
+        </div>
+    </header>
+    <section class="full-height-section">
+        <div class="content">
+            <div class="text-section">
+                <div class="gsd">
+                    Global software development
+                </div>
+                <div class="dynamic-text-container">
+                    partner in <span class="dynamic-text">
+                        <b>IT staff augmentation</b>
+                        <b>data analytics</b>
+                        <b>FinTech</b>
+                    </span>
+                </div>
+                <div class="db">
+                    with 1500+ developers on board
+                </div>
+            </div>
+            <div class="circle-button-wrapper">
+                <div class="ripple-effect"></div>
+                <div class="ripple-effect ripple-effect-2"></div> <!-- Additional ripple effect -->
+                <div class="ripple-effect ripple-effect-2 ripple-effect-3"></div> <!-- Additional ripple effect -->
+                <a href="#contact" class="circle-button">Let's talk</a>
+            </div>
+        </div>
+    </section>
+    <!-- Sponsors Section -->
+    <section class="sponsors-section">
+        <h2 class="sponsors-title">Recognized among the best, by the best</h2>
+        <div class="sponsors-container">
+            <!-- Add SVG sponsor images -->
+            <img src="./images/sponsors/Aws_partner_logo.svg" alt="Sponsor 1" class="sponsor">
+            <img src="./images/sponsors/Clutch.svg" alt="Sponsor 2" class="sponsor">
+            <img src="./images/sponsors/Clutch_100_Fastest_Growth_2023.svg" alt="Sponsor 2" class="sponsor">
+            <img src="./images/sponsors/Inc. 5000 eng.svg" alt="Sponsor 2" class="sponsor">
+            <img src="./images/sponsors/shop_awards.svg" alt="Sponsor 2" class="sponsor">
+            <img src="./images/sponsors/TUV.svg" alt="Sponsor 2" class="sponsor">
+            <!-- ... more sponsors ... -->
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="services-container">
+            <!-- Tabs for different services -->
+            <div class="tabs-container">
+                <!-- Tabs for different services -->
+                <div class="services-tabs">
+                    <div class="tab mb-10 active" onclick="showService('dedicated-team')">Dedicated Team</div>
+                    <div class="tab mb-10" onclick="showService('front-end')">Front-end developers</div>
+                    <div class="tab" onclick="showService('back-end')">Back-end developers</div>
+                    <!-- ... other tabs ... -->
+                </div>
+                <!-- Vertical line element -->
+                <div class="vertical-line"></div>
+            </div>
+
+            <!-- Content Area for the selected service -->
+            <div class="service-content">
+                <!-- Content for Dedicated Team -->
+                <div id="dedicated-team" class="service-detail show">
+                    <h2 class="service-title">Dedicated Team</h2>
+                    <div class="service-description">
+                        <div class="service-column">
+                            <h3>Front-end developers</h3>
+                            <p>Extend your IT team with our skilled front-end developers keeping fully abreast of the
+                                latest tech trends.</p>
+                        </div>
+                        <div class="service-column">
+                            <h3>IT Consulting & Support</h3>
+                            <p>Providing expert advice to optimize your IT infrastructure and operations.</p>
+                        </div>
+                        <div class="service-column">
+                            <h3>Mobile developers</h3>
+                            <p>High-grade development team with vast expertise in native and cross-platform mobile
+                                applications for hire</p>
+                        </div>
+                        <div class="service-column">
+                            <h3>Back-end developers</h3>
+                            <p>We bring together top-notch back-end experts with deep knowledge of the server-side
+                                development process</p>
+                        </div>
+                        <div class="service-column">
+                            <h3>UI/UX designers</h3>
+                            <p>Our UI/UX design team inspires user engagement and interaction</p>
+                        </div>
+                        <div class="service-column">
+                            <h3>3D designers</h3>
+                            <p>Visualize and animate your ideas in 3D with the help of our creative team</p>
+                        </div>
+                        <!-- Additional columns if necessary -->
+                    </div>
+                    <!-- ... more content for Dedicated Team ... -->
+                </div>
+            </div>
+    </section>
+
+<!-- Technology Section -->
+<section id="technology" class="technology-section">
+    <!-- Title -->
+    <h1 class="technology-title">Our Technology Stack</h1>
+
+    <!-- Main Content -->
+    <div class="technology-content">
+        <!-- Content Switcher (Left Column) -->
+        <div class="content-switcher">
+            <div class="switcher-item active" onclick="showTechnology('item1')">Item 1</div>
+            <div class="switcher-item" onclick="showTechnology('item2')">Item 2</div>
+            <!-- ... add more switcher items as needed ... -->
+        </div>
+
+        <!-- Item Details (Right Column) -->
+        <div class="item-details">
+            <!-- Item Title -->
+            <h2 class="item-title">Item 1</h2>
+
+            <!-- Two Columns in a Row -->
+            <div class="item-content">
+                <!-- Left Column with SVG Icon -->
+                <div class="icon-column">
+                    <svg class="item-icon"><!-- SVG for Item 1 --></svg>
+                </div>
+                
+                <!-- Right Column with Two-Letter Words Text and Button -->
+                <div class="text-column">
+                    <p class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dapibus justo sit amet malesuada ultricies.</p>
+                    <button class="item-button">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
