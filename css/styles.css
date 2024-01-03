@@ -8,14 +8,26 @@ body {
     font-size: 16px;
 }
 
+.btn-primary{
+  background-color: purple;
+  color: white;
+  border: none;
+}
+
+.read-more{
+  color: #4B0082;
+}
+
+/* header start */
+/* General Header Styles */
 .top-nav {
     background-color: #333;
-    /* Dark background */
     color: white;
     text-align: center;
     padding: 5px 0;
 }
 
+/* General Header Styles */
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -23,9 +35,7 @@ body {
     padding: 10px 20px;
     background-color: white;
     border-bottom: 1px solid #ddd;
-    /* Thin border at the bottom */
 }
-
 
 .logo img {
     height: 60px;
@@ -34,6 +44,7 @@ body {
 .main-nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     align-items: center;
 }
@@ -44,7 +55,6 @@ body {
 
 .main-nav ul li a {
     color: #666;
-    /* Dark text color */
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -54,8 +64,8 @@ body {
 }
 
 .contact-btn {
-    border: 1px solid #cc0000;
-    padding:10px 15px;
+    border: 1px solid purple;
+    padding: 10px 15px;
     text-decoration: none;
     color: #666;
     transition: all 0.3s ease;
@@ -77,51 +87,112 @@ body {
     cursor: pointer;
 }
 
-.top-nav i,
-.search-icon i {
-    margin-left: 5px;
-}
+/* ... (rest of the CSS) ... */
 
-/* Adjust the size and color of the icons as needed */
-.top-nav i {
-    font-size: 16px;
-    color: white;
-}
-
-
-@media screen and (max-width: 800px) {
-    .header-container {
-        flex-direction: column;
-        align-items: flex-start;
+/* Hide the checkbox */
+.nav-toggle {
+    display: none;
+  }
+  
+  /* Hamburger Icon */
+  .hamburger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 1000;
+    padding: 10px;
+  }
+  
+  .hamburger div {
+    background-color: #333;
+    width: 30px;
+    height: 3px;
+    margin: 6px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Show hamburger and toggle nav in mobile view */
+  @media screen and (max-width: 991px) {
+    .hamburger {
+      display: block;
     }
-
-    .main-nav,
-    .header-right {
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
+  
+    /* When nav-toggle is checked, transform hamburger into 'X' and show nav */
+    .nav-toggle:checked + .hamburger div {
+      transform: translateX(-50px);
+      background: transparent;
     }
-
+  
+    .nav-toggle:checked + .hamburger div:before {
+      transform: rotate(45deg) translate(35px, -35px);
+    }
+  
+    .nav-toggle:checked + .hamburger div:after {
+      transform: rotate(-135deg) translate(35px, 35px);
+    }
+  
+    /* Show main-nav when nav-toggle is checked */
+    .nav-toggle:checked + .hamburger + .main-nav {
+      display: flex;
+    }
+  
+    .main-nav {
+      display: none;
+      position: absolute;
+      top: 18%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #fff;
+      text-align: left;
+      padding-top: 20px;
+      z-index: 100;
+    }
+  
     .main-nav ul {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
     }
-
+  
     .main-nav ul li {
-        margin: 5px 0;
+      text-align: center;
+      padding: 10px 0;
     }
-}
-
-.full-height-section {
+  
+    .main-nav ul li a {
+      color: #333!important;
+      padding: 10px 20px;
+      display: block;
+    }
+  
+    .header-right {
+      display: none; /* Hide right header section on mobile */
+    }
+  }
+    
+  
+  
+  
+  
+  
+  
+  
+  .full-height-section {
     display: flex;
     height: 90vh;
     background-color: #f8f8f8;
+    justify-content: center;
+    align-items: center;
 }
 
 .content {
-    width: 100%;
+    width: 80%;
+    max-width: 1200px;
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: space-around;
     align-items: center;
     padding: 0 30px;
 }
@@ -135,106 +206,74 @@ body {
 
 .dynamic-text {
     overflow: hidden;
-    /* Hide the part of text that is outside its box */
-    color: #cc0000;
+    color: purple;
 }
 
 .dynamic-text b {
     display: block;
-    /* Make each text appear on a new line */
     opacity: 0;
-    /* Start with hidden text */
     animation: slide-down 1s ease forwards;
     transform: translateY(-100%);
-    /* Start from above */
 }
 
 .dynamic-text .is-visible {
     opacity: 1;
-    /* Make the current text visible */
     transform: translateY(0%);
-    /* Slide down into natural position */
-}
-
-@keyframes slide-down {
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
 }
 
 
 .circle-button-wrapper {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 220px;
-    right: 15%;
+  position: relative; /* Ensures child absolute elements are positioned relative to this */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2; /* Higher z-index to ensure visibility */
 }
 
 .circle-button {
-    background-color: #cc0000;
-    color: white;
-    border-radius: 50%;
-    padding: 10px;
-    text-decoration: none;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Ensures the button is above the ripple effect */
+  position: relative;
+  z-index: 3; /* Ensure the button is above the ripple effect */
+  background-color: purple;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  text-decoration: none;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
 }
-
 
 .ripple-effect,
 .ripple-effect-2,
 .ripple-effect-3 {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    animation: ripple 4s infinite ease-out;
-    bottom: -50%;
-    left: -50%;
-    transform: scale(0);
-    z-index: 1;
+  position: absolute;
+  max-width: 300px; /* Adjust size if needed */
+  height: 300px; /* Adjust size if needed */
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: ripple 4s infinite ease-out;
+  /* bottom: -50%;
+  left: -50%; */
+  transform: scale(0);
+  z-index: 1; /* Lower than the button */
 }
 
 .ripple-effect-2 {
     animation-delay: 2s;
-    /* Starts the second ripple 1 second later */
     background-color: rgba(255, 255, 255, 0.6);
 }
 
 .ripple-effect-3 {
     animation-delay: 1s;
-    /* Starts the second ripple 1 second later */
     background-color: rgba(255, 255, 255, 0.7);
 }
-
-@keyframes ripple {
-    0% {
-        transform: scale(0);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1);
-        opacity: 0.4;
-    }
-
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-}
-
-
 
 @media screen and (max-width: 768px) {
     .full-height-section {
@@ -242,10 +281,46 @@ body {
         text-align: center;
     }
 
+    .text-section {
+        font-size: 2em; /* Adjust font size for smaller screens */
+    }
+
+    .content {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
     .circle-button-wrapper {
+        position: static;
+        transform: translateY(0);
         margin-top: 20px;
     }
+
+    .ripple-effect,
+    .ripple-effect-2,
+    .ripple-effect-3{
+      width: 90%;
+    }
 }
+
+@keyframes ripple {
+  0% {
+      transform: scale(0);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(1);
+      opacity: 0.4;
+  }
+  100% {
+      transform: scale(1.5);
+      opacity: 0;
+  }
+}
+
+
+
+
+
 
 .sponsors-section {
     padding: 20px;
@@ -288,116 +363,137 @@ body {
     animation: scroll 30s linear infinite; /* Adjust time as needed */
 }
 
+
 /* Services Section Styling */
 .services-section {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    background-color: #fff;
-    padding: 40px;
-    display: flex;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: row; /* Default direction for larger screens */
 }
 
 .services-container {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
+  flex-direction: row; /* Default direction for larger screens */
 }
 
 .tabs-container {
-    position: relative;
-    height: fit-content;
+  position: relative;
+  height: fit-content;
 }
 
 .services-tabs {
-    position: relative;
-    z-index: 2; /* Ensures the tab text appears above the vertical line */
+  position: relative;
+  z-index: 2; /* Ensures the tab text appears above the vertical line */
 }
 
 .vertical-line {
-    position: absolute;
-    left: 1px; /* Align with the padding of the tabs */
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background-color: #ccc; /* Thin gray vertical line */
-    z-index: 1;
+  position: absolute;
+  left: 1px; /* Align with the padding of the tabs */
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #ccc; /* Thin gray vertical line */
+  z-index: 1;
 }
 
 .tab {
-    cursor: pointer;
-    font-size: 20px;
-    padding-left: 20px;
-    position: relative; /* Needed to raise the tab above the pseudo-element */
-    z-index: 2; /* Ensures the tab text appears above the vertical line */
+  cursor: pointer;
+  font-size: 20px;
+  padding-left: 20px;
+  position: relative; /* Needed to raise the tab above the pseudo-element */
+  z-index: 2; /* Ensures the tab text appears above the vertical line */
 }
-.mb-10{
-    margin-bottom: 10px;
 
+.mb-10 {
+  margin-bottom: 10px;
 }
 
 .tab.active {
-    color: #c1272d; /* A red-like color for active tab */
-    border-left: 4px solid #c1272d; /* A red-like border for active tab */
-    z-index: 3; /* Ensures the active tab border appears above the vertical line */
+  color: purple; /* A red-like color for active tab */
+  border-left: 4px solid purple; /* A red-like border for active tab */
+  z-index: 3; /* Ensures the active tab border appears above the vertical line */
 }
 
 .service-content {
-    flex-basis: 75%;
-    padding-left: 100px;
+  flex-basis: 75%;
+  padding-left: 100px;
 }
 
 .service-detail {
-    display: none;
+  display: none;
 }
 
 .service-detail.show {
-    display: block;
+  display: block;
 }
 
 .service-title {
-    font-size: 28px;
-    color: #cc0000; /* A red-like color for the main title */
-    margin-bottom: 100px;
+  font-size: 28px;
+  color: purple; /* A red-like color for the main title */
+  margin-bottom: 100px;
 }
 
 .service-description {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* This adds space between the columns */
-    margin-bottom: -20px; /* Negate the bottom margin of the last row */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* This adds space between the columns */
+  margin-bottom: -20px; /* Negate the bottom margin of the last row */
 }
 
 .service-column {
-    flex: 1 1 calc(50% - 20px); /* Sets a basis of 50%, accounting for the gap */
-    padding-bottom: 20px; /* Space at the bottom inside the column */
-    margin-bottom: 20px; /* Space at the bottom outside the column */
-    border-bottom: 1px solid #ccc; /* Thin gray border */
-    padding-inline: 20px 60px;
+  flex: 1 1 calc(50% - 20px); /* Sets a basis of 50%, accounting for the gap */
+  padding-bottom: 20px; /* Space at the bottom inside the column */
+  margin-bottom: 20px; /* Space at the bottom outside the column */
+  border-bottom: 1px solid #ccc; /* Thin gray border */
+  padding-inline: 20px 60px;
 }
 
 /* Ensure the last service-column in any row doesn't have a right margin */
 .service-description .service-column:nth-child(odd) {
-    margin-right: 20px;
+  margin-right: 20px;
+}
+
+.service-column h3 {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.service-column p {
+  color: #666; /* A gray-like color for text */
+  line-height: 1.6;
 }
 
 /* Adjustments for responsive behavior */
 @media screen and (max-width: 768px) {
-    .service-column {
-        flex-basis: 100%; /* Full width on smaller screens */
-        margin-right: 0; /* Remove right margin on smaller screens */
-    }
+  .services-section, .services-container {
+      flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+
+  .service-content {
+      flex-basis: auto; /* Adjust basis for mobile view */
+      padding-left: 0; /* Remove left padding for mobile view */
+      padding-top: 20px; /* Add some space above the content area */
+  }
+
+  .service-column {
+      flex-basis: 100%; /* Full width on smaller screens */
+      margin-right: 0; /* Remove right margin on smaller screens */
+  }
+
+  .vertical-line {
+      display: none; /* Hide the vertical line on smaller screens */
+  }
+
+  .tab {
+      font-size: 16px; /* Adjust font size for tabs on smaller screens */
+  }
 }
 
-
-.service-column h3 {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.service-column p {
-    color: #666; /* A gray-like color for text */
-    line-height: 1.6;
-}
 
 /* Add responsiveness if necessary */
 @media screen and (max-width: 768px) {
@@ -444,9 +540,9 @@ body {
 }
 
 .switcher-item.active {
-    background-color: #c1272d;
+    background-color: purple;
     color: #fff;
-    border-color: #c1272d;
+    border-color: purple;
 }
 
 .item-details {
@@ -471,7 +567,7 @@ body {
     /* Styles for SVG icon */
     width: 40px;
     height: 40px;
-    fill: #c1272d; /* Example fill color for icon */
+    fill: purple; /* Example fill color for icon */
 }
 
 .text-column {
@@ -486,7 +582,7 @@ body {
 
 .item-button {
     padding: 10px 20px;
-    background-color: #c1272d;
+    background-color: purple;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -505,3 +601,404 @@ body {
         flex-basis: 100%;
     }
 }
+
+
+/* mission starts */
+.mission-section-container {
+    background: url('path-to-background-wave-image.svg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 50px 50px;
+  }
+  
+  .mission-section-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 100%;
+    margin: auto;
+  }
+  
+  .mission-section-header-title {
+    color: purple;
+    font-size: 1.2rem; /* Adjusted to be smaller */
+    margin-right: 20px; /* Space between the title and main content */
+    white-space: nowrap; /* Prevents the title from wrapping */
+    font-weight: 900;
+  }
+  
+  .mission-section-main {
+    flex-grow: 1; /* Allows main content to fill the rest of the header */
+    text-align: left;
+    margin-left: 8rem;
+  }
+  
+  .mission-section-main-title {
+    color: #000;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .mission-section-text-content {
+    max-width: 750px;
+  }
+  
+  .mission-section-paragraph {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive styles for mobile */
+  @media (max-width: 768px) {
+    .mission-section-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .mission-section-main{
+      margin: 0;
+    }
+  
+    .mission-section-header-title {
+      margin-bottom: 10px;
+      margin-right: 0;
+    }
+  
+    .mission-section-main-title {
+      font-size: 2rem; /* Adjust for mobile */
+    }
+  
+    .mission-section-paragraph {
+      font-size: 0.9rem;
+    }
+  }
+    
+/* stat starts */
+
+.stats-section {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .stat {
+    margin: 10px;
+    flex-basis: 100%; /* On mobile, take full width */
+  }
+  
+  .stat-number {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .stat-label {
+    text-transform: uppercase;
+    font-size: 0.9em;
+  }
+  
+  /* Media query for desktop screens */
+  @media (min-width: 1024px) {
+    .stat {
+      flex-basis: 20%; /* Adjust if necessary */
+    }
+  }
+  
+  /* Media query for mobile screens to create a two-column layout */
+  @media (max-width: 1023px) {
+    .stats-section {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .stat {
+      flex-basis: calc(50% - 20px); /* Subtracting margin */
+      margin: 10px;
+    }
+    .stat-number {
+      font-size: 2em; /* Adjust if necessary for mobile */
+    }
+  }
+  
+  /* Horizontal lines for mobile view */
+  .stat::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: #fff;
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+  /* Ensure that the horizontal line is not added to the last element in mobile view */
+  @media (max-width: 1023px) {
+    .hide-line::after {
+      display: none;
+    }
+  }
+  
+
+/* stat end */
+
+
+
+/* event start */
+
+.event-main-container {
+    justify-content: center;
+    align-items: flex-start; /* Align to the start on large screens */
+    background-color: #2e2e2e;
+    display: flex;
+    flex-direction: column;
+    padding: 20px; /* Reduced padding */
+  }
+  
+  @media (max-width: 1200px) {
+    .event-main-container {
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .event-main-container {
+      padding: 10px; /* Even smaller padding for smaller screens */
+      align-items: center; /* Center align items on smaller screens */
+    }
+  }
+  
+  .conference-info-container {
+    display: flex;
+    width: 100%; /* Reduced width */
+    max-width: 90%;
+    flex-direction: column;
+    margin: 20px 50px; /* Reduced margin */
+  }
+  
+  @media (max-width: 991px) {
+    .conference-info-container {
+      width: 80%; /* Adjust width to be responsive */
+      margin: 20px 5px!important; /* Reduced margin */
+
+    }
+  }
+  
+  .conference-title {
+    color: #fff;
+    font: 400 48px/150% Sora, sans-serif; /* Reduced font size */
+  }
+  
+  @media (max-width: 991px) {
+    .conference-title {
+      font-size: 36px; /* Smaller font size for smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .conference-title {
+      font-size: 28px; /* Even smaller font size for mobile */
+    }
+  }
+  
+  .conference-details {
+    background-color: #3d3d3d;
+    display: flex;
+    margin-top: 30px; /* Reduced margin */
+    width: 350px;
+    padding-bottom: 30px; /* Reduced padding */
+    flex-direction: column;
+  }
+  
+  @media (max-width: 991px) {
+    .conference-details {
+      margin-top: 20px; /* Smaller margin for smaller screens */
+    }
+  }
+  
+  @media (max-width: 691px) {
+    .conference-details {
+      margin-top: 20px; /* Smaller margin for smaller screens */
+      width: 90%;
+    }
+  }
+  .conference-banner-image {
+    aspect-ratio: 1.69; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover fit for better aspect ratio handling */
+    width: 100%;
+  }
+  
+  .event-details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px; /* Reduced padding */
+    margin-top: 30px; /* Reduced margin */
+  }
+  
+  @media (max-width: 991px) {
+    .event-details {
+      padding: 0 15px; /* Smaller padding for smaller screens */
+      margin-top: 20px; /* Smaller margin for smaller screens */
+    }
+  }
+  
+  .event-name {
+    color: #fff;
+    font: 400 22px/35px Sora, sans-serif; /* Reduced font size */
+    text-align: center;
+  }
+  
+  .date-icon,
+  .location-icon,
+  .theme-icon {
+    width: 20px; /* Keep the icons small */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .event-date,
+  .event-location,
+  .event-theme {
+    color: #fff;
+    align-self: start;
+    font: 400 16px/150% Sora, sans-serif; /* Reduced font size */
+    text-align: left;
+  }
+  
+  .meeting-cta {
+    color: #fff;
+    background-color: purple;
+    margin-top: 20px; /* Reduced margin */
+    padding: 15px 25px; /* Adjusted padding */
+    font: 400 16px/150% Karla, sans-serif; /* Reduced font size */
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .event-details,
+    .event-date-container,
+    .event-location-container,
+    .event-theme-container {
+      align-items: center; /* Center align for mobile */
+    }
+  
+    .date-icon,
+    .location-icon,
+    .theme-icon {
+      margin-bottom: 10px; /* Added margin-bottom for stacked layout */
+    }
+  }
+  
+
+/* event ends */
+
+
+/* footer start */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.software-footer-section {
+  background: #4B0082; /* Indigo (primary purple color) */
+  color: #fff;
+  padding: 60px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.software-footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3.5rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.software-footer-column h4 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #D8BFD8; /* Thistle (lighter purple for headings) */
+}
+
+.software-footer-links-list {
+  list-style-type: none;
+}
+
+.software-footer-links-list li a {
+  color: white; /* Plum (secondary purple color) */
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.software-footer-links-list li a:hover {
+  color: #FFFFFF; /* White color for hover state */
+}
+
+.software-footer-column p {
+  margin-top: 20px;
+  color: #E6E6FA; /* Lavender (tertiary purple color) */
+}
+
+.career-button {
+  display: inline-block;
+  background-color: #FFFFFF; /* White background for contrast */
+  color: #4B0082; /* Indigo text color */
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.career-button:hover {
+  background-color: #D8BFD8; /* Thistle background color on hover */
+}
+
+.software-footer-social-icons {
+  margin-top: 30px;
+}
+
+.software-footer-social-icons a {
+  color: white; /* Plum color for icons */
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.software-footer-social-icons a:hover {
+  color: #FFFFFF; /* White color for hover state */
+}
+
+@media (max-width: 768px) {
+  .software-footer-section {
+    padding: 40px 20px;
+  }
+
+  .software-footer-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .software-footer-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .software-footer-social-icons a {
+    margin-right: 10px;
+  }
+}
+
+/* footer ends */

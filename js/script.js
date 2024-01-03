@@ -24,42 +24,35 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 3000); // Change text every 3 seconds
 });
 
-function showService(serviceId) {
-    // Remove 'show' class from all service details and 'active' from tabs
-    document.querySelectorAll('.service-detail').forEach(function(service) {
-        service.classList.remove('show');
+document.addEventListener('DOMContentLoaded', function () {
+    function showService(serviceId) {
+        var serviceDetails = document.querySelectorAll('.details-block');
+        serviceDetails.forEach(function (detail) {
+            detail.style.display = 'none';
+        });
+
+        var selectedService = document.getElementById(serviceId);
+        if (selectedService) {
+            selectedService.style.display = 'block';
+        }
+
+        var navigationItems = document.querySelectorAll('.navigation-item');
+        navigationItems.forEach(function (item) {
+            item.classList.remove('active');
+        });
+        this.classList.add('active');
+    }
+
+    var navigationItems = document.querySelectorAll('.navigation-item');
+    navigationItems.forEach(function (item) {
+        item.addEventListener('click', function() {
+            showService.bind(this)(this.dataset.serviceId);
+        });
     });
-    document.querySelectorAll('.tab').forEach(function(tab) {
-        tab.classList.remove('active');
-    });
+});
 
-    // Add 'show' class to the selected service
-    document.getElementById(serviceId).classList.add('show');
 
-    // Add 'active' class to the clicked tab
-    document.querySelector('.tab[onclick="showService(\'' + serviceId + '\')"]').classList.add('active');
-}
-
-// Initialize the first tab as active
-showService('dedicated-team');
-
-function showTestimonial(testimonialId) {
-    // Hide all testimonials
-    document.querySelectorAll('.testimonial-detail').forEach(function(detail) {
-        detail.classList.remove('show');
-    });
-
-    // Remove active class from all tabs
-    document.querySelectorAll('.testimonial-tabs .testimonial-tab').forEach(function(tab) {
-        tab.classList.remove('active');
-    });
-
-    // Show the selected testimonial
-    document.getElementById(testimonialId).classList.add('show');
-
-    // Add active class to the clicked tab
-    document.querySelector('.testimonial-tabs .testimonial-tab[onclick="showTestimonial(\'' + testimonialId + '\')"]').classList.add('active');
-}
-
-// Initialize the first testimonial as active
-showTestimonial('testimonial1');
+// Toggle navigation menu
+document.getElementById('nav-toggle').addEventListener('change', function() {
+    document.querySelector('.main-nav').style.display = this.checked ? 'flex' : 'none';
+});
