@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "public": true,
+    "name": "Ekke-website",
+    "builds": [
+      {
+        "src": "index.html",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
+  
