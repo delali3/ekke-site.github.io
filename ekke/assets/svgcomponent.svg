@@ -1,0 +1,29 @@
+<svg 
+      preserveAspectRatio="xMidYMid meet"
+      data-bbox="26.5 23.75 147 152.5"
+      viewBox="26.5 23.75 147 152.5"
+      
+      xmlns="http://www.w3.org/2000/svg"
+      data-type="color"
+      role="presentation"
+      aria-hidden="true"
+      aria-label=""
+
+    >
+      <defs>
+        <style>
+            
+          {`
+            #comp-lf7om3rz1 svg [data-color="1"] {fill: #16163F;}
+            #comp-lf7om3rz1 svg [data-color="2"] {fill: #DDBBFF;}
+            #comp-lf7om3rz1 svg [data-color="3"] {fill: #9E3FFD;}
+          `}
+          
+        </style>
+      </defs>
+      <g>
+        <path fill="#16163F" clipRule="evenodd" fillRule="evenodd" d="M42 170.25a6 6 0 1 1-12 0 6 6 0 0 1 12 0z" data-color="1"></path>
+        <path fill="#E7E7EB" clipRule="evenodd" fillRule="evenodd" d="M173.5 103.75c0 31.48-25.52 57-57 57s-57-25.52-57-57 25.52-57 57-57 57 25.52 57 57z" data-color="2"></path>
+        <path fill="#9E3FFD" clipRule="evenodd" fillRule="evenodd" d="M116.5 68.75c0 24.853-20.147 45-45 45s-45-20.147-45-45 20.147-45 45-45 45 20.147 45 45z" data-color="3"></path>
+      </g>
+    </svg>

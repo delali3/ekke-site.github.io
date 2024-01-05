@@ -1,0 +1,608 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .header-top {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-btn {
+    width: 18rem;
+    height: 3rem;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-size: large;
+    background-color: rgb(158, 63, 253);
+    transition: background-color 0.3s ease;
+}
+
+.header-btn:hover {
+    background-color: rgb(22, 22, 63);
+    cursor: pointer;
+}
+
+.header-bottom {
+    width: 90%;
+    color: rgb(65, 65, 65);
+    font-size: 1.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.header-bottom h3 {
+    letter-spacing: 0.05em;
+}
+
+.parallax-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.parallax-background {
+    position: fixed;
+    top: 10em;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/purple-bg.png');
+    background-size: cover;
+    background-position: center;
+    transform: translateZ(0);
+    z-index: -1;
+    will-change: transform;
+}
+
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s, opacity 0.5s;
+}
+
+.animate-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.parallax-container .content h1 {
+    font-size: 5rem;
+    margin-top: 5rem;
+    color: rgb(22, 22, 63);
+    text-align: left;
+    margin-left: 3rem;
+    width: 70%;
+}
+
+.parallax-container .content p {
+    font-size: 1.2rem;
+    text-align: left;
+    margin-left: 3rem;
+    margin-top: 4rem;
+    color: black;
+    width: 70%;
+    letter-spacing: 0.15em;
+    line-height: 1.8;
+}
+
+.learn-more {
+    width: 12rem;
+    height: 3rem;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-size: large;
+    background-color: rgb(158, 63, 253);
+    margin-left: 3.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: rgb(22, 22, 63);
+    cursor: pointer;
+}
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: white;
+}
+
+.site-video {
+    max-width: 85%;
+    width: auto;
+    height: 90vh;
+}
+
+.numbers {
+    background-color: rgb(158, 63, 253);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5rem;
+}
+
+.numbers h2 {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.number-counts {
+    display: flex;
+    flex-direction: row;
+}
+
+.dot {
+    width: 1.9rem;
+    height: 1.9rem;
+    margin: 2rem;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.numbers .number-counts .count h1 {
+    color: white;
+    font-size: 5em;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+}
+
+.numbers .number-counts .count p {
+    color: white;
+    font-size: 1em;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+}
+
+.services {
+    background-color: white;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.services h1 {
+    color: rgb(158, 63, 253);
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.services .sub-title {
+    font-size: 2.3em;
+    color: rgb(22, 22, 63);
+    padding-bottom: 5rem;
+}
+
+.service-divisions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.div1 {
+    display: flex;
+    flex-direction: column;
+    width: 44%;
+}
+
+.div1 h4 {
+    margin: 2rem;
+    text-align: center;
+    color: rgb(22, 22, 63);
+    ;
+}
+
+.div1 p {
+    text-align: left;
+    letter-spacing: 0.13em;
+    line-height: 1.4;
+    font-size: 1.2em;
+}
+
+.div2 p {
+    text-align: left;
+    letter-spacing: 0.13em;
+    line-height: 1.3;
+    font-size: 1.2em;
+}
+
+.div2 {
+    display: flex;
+    flex-direction: column;
+    width: 46%;
+}
+
+.div2 h4 {
+    margin: 2rem;
+    text-align: center;
+    color: rgb(22, 22, 63);
+}
+
+.about-us {
+    position: relative;
+    background-color: white;
+    padding-top: 5rem;
+    padding-bottom: 7rem;
+}
+
+.about-us h1 {
+    color: rgb(158, 63, 253);
+    font-size: 3em;
+    text-align: center;
+    width: 44%;
+}
+
+.about-us h3 {
+    color: rgb(22, 22, 63);
+    font-size: 1.5em;
+    text-align: left;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 5rem;
+}
+
+.about-us p {
+    text-align: left;
+    letter-spacing: 0.13em;
+    line-height: 1.5;
+    font-size: 1.1em;
+    padding-left: 5rem;
+    padding-right: 3rem;
+}
+
+.about-us-bg {
+    position: absolute;
+    height: 150px;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    background: transparent;
+    float: right;
+    transform: rotateY(180deg);
+    margin: 0;
+    padding: 0;
+}
+
+.about-us-img {
+    position: absolute;
+    width: 100vw;
+    opacity: 0.2;
+}
+
+.about-us-img2 {
+    margin-top: 10px;
+    position: absolute;
+    opacity: 0.4;
+    width: 100vw;
+}
+
+.about-us-img3 {
+    margin-top: 20px;
+    opacity: 0.6;
+    width: 100vw;
+}
+
+.about-us-img4 {
+    margin-top: 30px;
+    opacity: 0.8;
+    width: 100vw;
+}
+
+.tools {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: #000;
+    background-color: white;
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+    position: relative;
+}
+
+.tools h1 {
+    color: rgb(22, 22, 63);
+    font-size: 3em;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.slider-container {
+    position: relative;
+    width: 90vw;
+    overflow: hidden;
+}
+
+
+.slider {
+    display: flex;
+    transition: all 0.5s ease;
+}
+
+
+.slide {
+    flex: 1;
+    min-width: 100%;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+}
+
+.slider-button {
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin-right: 8rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.animate{
+    opacity: 0;
+    visibility: hidden; 
+    transform: translateY(20px);
+    transition: transform 2s, opacity 2s; 
+}
+
+.animate.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dedication-container {
+    margin-top: 5rem;
+    margin-left: 12rem;
+    margin-right: 12rem;
+    padding: 3rem;
+    background-color: rgb(30, 36, 46);
+}
+
+.dedication-container h4 {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 1.2em;
+}
+
+.dedication-container ul li {
+    color: white;
+    line-height: 2;
+    margin-left: 1rem;
+    font-size: 1.2em;
+}
+
+.contact-us {
+    background-color: rgb(250, 250, 250);
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.contact-us a {
+    color: black;
+    font-size: 2.5em;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.contact-us .sub-container {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-self: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-us .sub-container div a {
+    padding: 2rem;
+}
+
+.contact-us .sub-container p {
+    color: black;
+    font-size: 1.5em;
+}
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 35px;
+    right: 20px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: solid rgb(30, 36, 46);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.circle i {
+    color: rgb(30, 36, 46);
+    font-size: 24px;
+}
+
+
+@media screen and (max-width:480px) {
+    .header .header-top {
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 65%;
+        margin-bottom: 1rem;
+    }
+
+    .header-btn {
+        margin-bottom: 1rem;
+    }
+
+    .header-bottom {
+        font-size: 0.89em;
+    }
+
+    .header-bottom h3 {
+        letter-spacing: 0;
+    }
+
+    .parallax-container .content h1 {
+        font-size: 3.5rem;
+        margin-top: 2rem;
+        color: rgb(22, 22, 63);
+        text-align: left;
+        margin-left: 2rem;
+        width: 80%;
+    }
+
+    .parallax-container .content p {
+        font-size: 1.1rem;
+        text-align: left;
+        margin-left: 2rem;
+        margin-top: 2rem;
+        color: black;
+        width: 85%;
+        letter-spacing: 0.1em;
+        line-height: 1.1;
+    }
+
+    .site-video {
+        max-width: 85%;
+        width: auto;
+        height: auto;
+    }
+
+    .numbers h2 {
+        font-size: 2em;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        line-height: 1.5;
+    }
+
+    .number-counts {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dot {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 2rem;
+        border-radius: 100%;
+        background-color: white;
+        align-self: center;
+    }
+
+    .service-divisions {
+        flex-direction: column;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .div1 {
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .div2 {
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .services {
+        padding-bottom: 1rem;
+    }
+
+    .about-us h1 {
+        text-align: left;
+        width: 100%;
+        padding-left: 5rem;
+    }
+
+    .about-us h3 {
+        padding-right: 3rem;
+    }
+
+    .about-us p {
+        text-align: left;
+        letter-spacing: 0.13em;
+        line-height: 1.3;
+        font-size: 1.1em;
+        padding-left: 2rem;
+        padding-right: 3rem;
+    }
+
+    .tools h1 {
+        font-size: 2.5em;
+    }
+
+    .slider-container {
+        display: none;
+    }
+
+    .dedication-container {
+        margin-top: 5rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        padding: 3rem;
+        background-color: rgb(30, 36, 46);
+    }
+
+    .contact-us .sub-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contact-us .sub-container div a {
+        padding: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+}

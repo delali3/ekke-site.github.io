@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 body {
     font-family: Arial, sans-serif;
@@ -234,7 +235,7 @@ body {
 }
 
 .circle-button {
-  position: relative;
+  position: absolute;
   z-index: 3; /* Ensure the button is above the ripple effect */
   background-color: purple;
   color: white;
@@ -247,22 +248,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
+  top: -200px;
+  left: 100px;
 }
-
+/* 
 .ripple-effect,
 .ripple-effect-2,
 .ripple-effect-3 {
   position: absolute;
-  max-width: 300px; /* Adjust size if needed */
-  height: 300px; /* Adjust size if needed */
+  max-width: 300px;
+  height: 300px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   animation: ripple 4s infinite ease-out;
-  /* bottom: -50%;
-  left: -50%; */
+  bottom: -50%;
+  left: -50%;
   transform: scale(0);
-  z-index: 1; /* Lower than the button */
+  z-index: 1;
 }
 
 .ripple-effect-2 {
@@ -273,7 +275,7 @@ body {
 .ripple-effect-3 {
     animation-delay: 1s;
     background-color: rgba(255, 255, 255, 0.7);
-}
+} */
 
 @media screen and (max-width: 768px) {
     .full-height-section {
@@ -289,38 +291,87 @@ body {
         flex-direction: column; /* Stack elements vertically */
     }
 
+    .circle-button{
+      top: 0;
+      left: 0;
+      color: white!important;
+      animation: rotate 2s infinite ease-in-out;
+      will-change: transform, opacity;
+      
+    }
+
     .circle-button-wrapper {
         position: static;
         transform: translateY(0);
         margin-top: 20px;
     }
 
-    .ripple-effect,
+    .ripple-effect-1,
     .ripple-effect-2,
     .ripple-effect-3{
-      width: 90%;
+      display: none;
     }
+
 }
 
-@keyframes ripple {
+@keyframes rotate {
   0% {
-      transform: scale(0);
-      opacity: 1;
+      transform: rotateZ(360deg);
   }
   50% {
-      transform: scale(1);
-      opacity: 0.4;
+      transform: rotateZ(180deg);
   }
   100% {
-      transform: scale(1.5);
-      opacity: 0;
+      transform: rotateZ(0deg);
   }
 }
 
 
 
+.ripple-effect-1,
+.ripple-effect-2,
+.ripple-effect-3,
+.ripple-effect-4,
+.ripple-effect-5{
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: -150px;
+  left: 180px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  transform: translate3d(-50%, 50%, 0);
+  animation-name: ripple;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  will-change: transform, opacity;
+}
 
+.ripple-effect-1{
+  animation-delay: 0;
+}
 
+.ripple-effect-2{
+  animation-delay: 1s;
+}
+
+.ripple-effect-3{
+  animation-delay: 2s;
+}
+
+@keyframes ripple{
+  0%{
+    transform: translate3d(-50%, 50%, 0) scale(0);
+    opacity: .33;
+  }
+  100%{
+    transform: translate3d(-50%, 50%, 0) scale(300);
+    opacity: 0;
+  }
+}
 
 .sponsors-section {
     padding: 20px;
@@ -605,8 +656,6 @@ body {
 
 /* mission starts */
 .mission-section-container {
-    background: url('path-to-background-wave-image.svg') no-repeat center center fixed;
-    background-size: cover;
     padding: 50px 50px;
   }
   
@@ -772,6 +821,8 @@ body {
   }
   
   .conference-info-container {
+    background: url('../../bg.svg') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     width: 100%; /* Reduced width */
     max-width: 90%;
