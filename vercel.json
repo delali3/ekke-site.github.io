@@ -6,6 +6,16 @@
         "use": "@vercel/static"
       }
     ],
+    "headers": [
+        {
+          "source": "/public/css/(.*)",
+          "headers": [{ "key": "Content-Type", "value": "text/css" }]
+        },
+        {
+          "source": "/ekke/css/(.*)",
+          "headers": [{ "key": "Content-Type", "value": "text/css" }]
+        }
+      ],
     "routes": [
       {
         "src": "/(.*)",
