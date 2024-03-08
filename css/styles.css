@@ -854,14 +854,28 @@ body {
       font-size: 28px; /* Even smaller font size for mobile */
     }
   }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Add wrap to ensure content fits on smaller screens */
+    margin: 0 auto; /* Center the row for better alignment */
+    max-width: 90%; /* Limit max width and center it */
+    padding: 0 20px; /* Add some padding for spacing */
+  }
   
   .conference-details {
     background-color: #3d3d3d;
     display: flex;
-    margin-top: 30px; /* Reduced margin */
-    width: 350px;
-    padding-bottom: 30px; /* Reduced padding */
-    flex-direction: column;
+    flex: 1 1 250px; /* Allow flex items to grow and shrink, with a base width of 250px */
+    margin: 10px; /* Add margin for spacing between items */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+
+  .conference-details video {
+    width: 100%;
+    height: auto; /* Adjust height automatically to maintain aspect ratio */
   }
   
   @media (max-width: 991px) {
