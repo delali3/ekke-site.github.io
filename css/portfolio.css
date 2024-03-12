@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    box-sizing: border-box;
+    scroll-padding: 2rem;
+}
+
+.card-box {
+    box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    background-color: #fff; /* Light background for the card */
+    color: #000; /* Black text color */
+    margin-bottom: 20px; /* Space between cards */
+    padding: 1rem;
+    border: 1px solid #ddd; /* Slight border for definition */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.tech-chip {
+    background-color: #000; /* Black background for chips */
+    color: #fff; /* White text for contrast */
+    padding: 5px 10px; /* Padding inside chips */
+    border-radius: 15px; /* Rounded edges for chips */
+    font-size: 0.8rem; /* Smaller font size for chips */
+    margin-right: 5px; /* Space between chips */
+    margin-top: 5px; /* Space above chips, if wrapped */
+}
+
+/* Ensures h3 titles have black color specifically, overriding any inherited styles */
+.card-box h3 {
+    color: #000; /* Ensuring title text is black */
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.footer p{
+    font-size: 0.938rem;
+}
+
+.social{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.social .bx{
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.social .bx:hover{
+    color: var(--second-color);
+    transition: 0.3s all linear;
+}
+
+.intro-section h2 {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.intro-section p {
+    font-size: 1.1rem;
+}
